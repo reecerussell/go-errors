@@ -142,3 +142,25 @@ func TestWriteResponse_GivenError_WritesJSON(t *testing.T) {
 	assert.Equal(t, "Oops", *data["message"])
 	assert.Equal(t, "Name", *data["paramName"])
 }
+
+func TestWriteResponse_GivenStandardError_WritesJSON(t *testing.T) {
+	err := fmt.Errorf("Oops")
+	rr := httptest.NewRecorder()
+
+	WriteResponse(rr, err)
+
+	resp := rr.Result()
+	defer resp.Body.Close()
+
+	assert.Equal(t, http.StatusInternalServerError, resp.StatusCode)
+	assert.Equal(t, "application/json", resp.Header.Get("Content-Type"))
+
+	bytes, _ := ioutil.ReadAll(resp.Body)
+
+	var data map[string]*string
+	_ = json.Unmarshal(bytes, &data)
+
+	assert.Equal(t, "InternalServerError", *data["error"])
+	assert.Equal(t, "Oops", *data["message"])
+	assert.Nil(t, data["paramName"])
+}
