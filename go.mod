@@ -1,4 +1,4 @@
-module github.com/reecerussell/go-errors/errors
+module github.com/reecerussell/go-errors
 
 go 1.16
 
