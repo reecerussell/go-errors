@@ -1,4 +1,4 @@
-module github.com/reecerussell/plant-pot-cms/errors
+module github.com/reecerussell/go-errors/errors
 
 go 1.16
 
