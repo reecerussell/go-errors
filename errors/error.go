@@ -67,6 +67,8 @@ func (err *Error) ParamName() *string {
 	return err.paramName
 }
 
+// MarshalJSON is a custom JSON marshal func used
+// when writing the error to a http.ResponseWriter.
 func (err *Error) MarshalJSON() ([]byte, error) {
 	data := map[string]interface{}{
 		"error":   err.typ,
