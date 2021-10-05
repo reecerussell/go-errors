@@ -1,3 +1,7 @@
+[![Go Report Card](https://goreportcard.com/badge/github.com/reecerussell/go-errors)](https://goreportcard.com/badge/github.com/reecerussell/go-errors)
+[![codecov](https://codecov.io/gh/reecerussell/go-errors/branch/master/graph/badge.svg)](https://codecov.io/gh/reecerussell/go-errors)
+[![Go Docs](https://godoc.org/github.com/reecerussell/go-errors?status.svg)](https://godoc.org/github.com/reecerussell/go-errors)
+
 # Errors
 
 A simple interface return descriptive errors from HTTP handlers. Expanding on the `error` interface, `Error` provides APIs to set the `type` and `message` of the error, as well as an optional `paramName` property.
